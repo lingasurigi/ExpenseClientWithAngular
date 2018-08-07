@@ -126,6 +126,6 @@ export class ListuserComponent  {
 
   editCell(cellval){
     console.log(cellval);
-
+    console.log(cellval);
   }
 }
