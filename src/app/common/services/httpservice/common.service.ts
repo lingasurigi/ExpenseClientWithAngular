@@ -12,7 +12,7 @@ import { HttpEvent } from '@angular/common/http';
   {  providedIn: 'root' }
 )
 
-export class UserService {
+export class CommonService {
   baseUrl: string = 'http://localhost:53818//api/user/'
   
   // intercept(req: HttpRequest<any>, next: HttpHandler) {
@@ -26,8 +26,6 @@ export class UserService {
 }
 
 post<T>(url: string, body: string): Observable<T> {
-  alert(url);
-  alert(body);
     return this.http.post<T>(url, body);
 }
 

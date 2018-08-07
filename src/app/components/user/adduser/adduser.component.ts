@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../../services/user/user.service';
+import { CommonService } from '../../../common/services/httpservice/common.service';
 
 @Component({
   selector: 'app-adduser',
@@ -9,64 +9,82 @@ import { UserService } from '../../../services/user/user.service';
   styleUrls: ['./adduser.component.css']
 })
 export class AdduserComponent implements OnInit {
+
   userForm: FormGroup;
   title: string = "Add";
-  id: number = 0;
+  userId: number = 0;
   errorMessage: any;
   submitted: boolean = false;
   _ref:any;
+  selectedFile: File;
+
   constructor(private _fb: FormBuilder, 
               private _avRoute: ActivatedRoute,
-              private _userService: UserService,
+              private _commonService: CommonService,
               private _router: Router) { 
     
-    if(this._avRoute.snapshot.params["id"]){
-      this.id = parseInt( this._avRoute.snapshot.params["id"]);
-      console.log(this.id);
+    if(this._avRoute.snapshot.params["userId"]){
+      debugger;
+      this.userId = parseInt( this._avRoute.snapshot.params["userId"]);
+      console.log(this.userId);
         this.title = 'Edit';
     }
 
     this.userForm = this._fb.group({
-      id: 0,
+      userId: this.userId > 0 ? this.userId : 0,
       firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       userName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       password: ['', [Validators.required]],
-      address: ['', [Validators.required]],
+      //address: ['', [Validators.required]],
       email: ['', [Validators.required]],
       isActive: ['', [Validators.required]],
       //phone: ['', [Validators.pattern("[1-9][0-9]{9}")]],
+      userImage:['']
       
     })
   }
 
   ngOnInit() {
-    // if(this.id > 0){
-    //     this._userService.getCustomerById(this.id)
-    //       .subscribe(resp => this.userForm.setValue(resp)
-    //                , error => this.errorMessage = error);
+    if(this.userId > 0){
+      debugger;
+        this._commonService.get('http://localhost:53818//api/user/EditUser?userId='+ this.userId)
+          .subscribe(resp => {
+                              debugger;
+                              this.userForm.setValue(resp)
+                            }
+                              , error => this.errorMessage = error);
           
-    // }
+    }
   }
 
   save(){
     debugger;
-    if(!this.userForm.valid){
-      this.submitted = true;
+    if(this.userForm.valid){
+      this.userForm.value.userImage = this.selectedFile;
+      console.log(this.userForm.value.userImage);
+      // this._commonService.post('http://localhost:53818//api/user/SaveUser',JSON.stringify(this.userForm.value))
+      //   .subscribe(custId => {
+      //     debugger;
+      //       //alert('Saved Successfully!')
+      //       //this._router.navigate(['customers', {id: custId}]);
+      //       this._router.navigateByUrl('listusers');
+      //    }, error => this.errorMessage = error )
+    }
+    else{
+      this.submitted = false;
+      event.preventDefault()
+    }
+
     
+}
 
-    this._userService.post('http://localhost:53818//api/user/SaveUser',JSON.stringify(this.userForm.value))
-        .subscribe(custId => {
-          debugger;
-            //alert('Saved Successfully!')
-            this._router.navigate(['customers', {id: custId}]);
-         }, error => this.errorMessage = error )
-        }
-
-  }
-
+onFileSelected(event){
+  debugger;
+  this.selectedFile = event.target.files[0];
+}
   cancel(){
-    this._router.navigate(["customers", {id: this.id}]);
+    this._router.navigate(["customers", {id: this.userId}]);
   }
 
   get firstName() { return this.userForm.get('firstName'); }  

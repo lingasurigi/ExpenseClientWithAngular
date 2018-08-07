@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TokenInterceptor } from './common/tokeninterceptor';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgGridModule } from 'ag-grid-angular/main';
 
 @NgModule({
   declarations: [
@@ -19,20 +20,21 @@ import { ReactiveFormsModule } from '@angular/forms';
     EdituserComponent,
     ListuserComponent,
     NavbarComponent
-  ],
+],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     routing,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule.withComponents(ListuserComponent)
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

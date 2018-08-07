@@ -1,4 +1,19 @@
-<h3>User List
+<div>
+    <button (click)="deleteSelectedUsers()" [disabled]="!isUserExists">Delete Selected Rows</button>
+</div>
+<ag-grid-angular #usersGrid style="width:50%; height: 200px;" class="ag-theme-balham" *ngIf="isGridCanShow" [gridOptions]="gridOptions"
+enableColResize enableSorting enableFilter [pagination]="true" [paginationAutoPageSize]="true"
+(cellClicked)="editCell($event)"
+(gridReady)="onGridReady($event)" 
+rowSelection="multiple"
+(cellValueChanged)="onCellValueChanged($event)">
+</ag-grid-angular>
+
+
+
+
+
+<!-- <h3>User List
   <button class="btn btn-success btn-circle pull-right" 
           (click) = 'add()'
           title="Add User">
@@ -26,16 +41,16 @@
     </thead>
     <tbody>
         <!-- <tr *ngFor="let user of users | search: searchText" -->
-        <tr *ngFor="let user of users">
+        <!-- <tr *ngFor="let user of users" [ngClass]="{'btn-primary': user.userid == currentId }"> -->
             <!-- <tr *ngFor="let user of users" [ngClass]="{'btn-primary': user.i=userid == currentId }"> -->
-            <td>{{user.UserName}}</td>
-            <td>{{user.Email}}</td>
-            <td>{{user.IsActive}}</td>
+            <!-- <td>{{user.userName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.isActive}}</td>
             <td style="width: 70px;">
-                <i class="glyphicon glyphicon-edit pointer" (click)="edit(user.userid)" title="Edit"></i>
-                <i class="glyphicon glyphicon-trash pointer" (click)="delete(user.userid)"  title="Delete"></i>
-                <i class="glyphicon glyphicon-user pointer" title="Image"></i>
+                <i class="fa fa-edit pointer" (click)="edit(user.userId)" title="Edit"></i>
+                <i class="fa fa-trash pointer" (click)="delete(user.userId)"  title="Delete"></i>
+                <i class="fa fa-user pointer" title="Image"></i>
             </td>
         </tr>
     </tbody>
-</table>
+</table> --> 
