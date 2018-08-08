@@ -62,14 +62,20 @@ export class AdduserComponent implements OnInit {
     debugger;
     if(this.userForm.valid){
       this.userForm.value.userImage = this.selectedFile;
-      console.log(this.userForm.value.userImage);
-      // this._commonService.post('http://localhost:53818//api/user/SaveUser',JSON.stringify(this.userForm.value))
-      //   .subscribe(custId => {
-      //     debugger;
-      //       //alert('Saved Successfully!')
-      //       //this._router.navigate(['customers', {id: custId}]);
-      //       this._router.navigateByUrl('listusers');
-      //    }, error => this.errorMessage = error )
+      //console.log(this.userForm.value.userImage);
+      debugger;
+      let formData: FormData = new FormData();  
+      formData.append('uploadFile', this.selectedFile, this.selectedFile.name);  
+
+      formData.append('user',this.userForm.value);
+
+      this._commonService.post('http://localhost:53818//api/user/SaveUser',JSON.stringify(formData))
+        .subscribe(custId => {
+          debugger;
+            //alert('Saved Successfully!')
+            //this._router.navigate(['customers', {id: custId}]);
+            this._router.navigateByUrl('listusers');
+         }, error => this.errorMessage = error )
     }
     else{
       this.submitted = false;

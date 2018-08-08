@@ -1,0 +1,121 @@
+<h3>{{title}} Chit</h3>
+<hr>
+<div>{{errorMessage}}</div>
+<form [formGroup]="chitForm" (ngSubmit)="save()" novalidate>
+    <div class="form-group row">
+        <label for="" class="col-md-12">First Name</label>
+        <div class="col-md-4">
+            <input type=""  class="form-control"
+                   formControlName="firstName">
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="firstName.invalid && (firstName.dirty || submitted)">
+                <div *ngIf="firstName.errors.required">
+                    First Name is required
+                </div>
+                <div *ngIf="firstName.errors.minlength">
+                   Min. 3 charaters
+                </div>
+                <div *ngIf="firstName.errors.maxlength">
+                    Must not exceed 30 charaters
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Last Name</label>
+        <div class="col-md-4">
+            <input type="text"  class="form-control"
+                   formControlName="lastName">
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="lastName.invalid && (lastName.dirty || submitted)">
+                <div *ngIf="lastName.errors.required">
+                    Last Name is required
+                </div>
+                <div *ngIf="lastName.errors.minlength">
+                   Min. 3 charaters
+                </div>
+                <div *ngIf="lastName.errors.maxlength">
+                    Must not exceed 30 charaters
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">User Name</label>
+        <div class="col-md-4">
+            <input type="text"  class="form-control"
+                   formControlName="userName">
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="userName.invalid && (userName.dirty || submitted)">
+                <div *ngIf="userName.errors.required">
+                    User Name is required
+                </div>
+                <div *ngIf="userName.errors.minlength">
+                   Min. 3 charaters
+                </div>
+                <div *ngIf="userName.errors.maxlength">
+                    Must not exceed 30 charaters
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Password</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                    formControlName="password" >
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="password.invalid && (password.dirty || submitted)">
+                 <div *ngIf="password.errors.required">
+                    Password is required
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Email</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control"
+                    formControlName="email" >
+        </div>
+        <div class="col-md-6">
+            <div class="error" *ngIf="email.invalid && (email.dirty || submitted)">
+                 <div *ngIf="email.errors.required">
+                    Email is required
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Is User Active</label>
+        <div class="col-md-4">
+            <input type="checkbox" class="form-control"
+                    formControlName="isActive" >
+        </div>
+        <!-- <div class="col-md-6">
+            <div class="error" *ngIf="isActive.invalid && (isActive.dirty || submitted)">
+                 <div *ngIf="isActive.errors.required">
+                    IsActive is required
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Please upload Image</label>
+        <div class="col-md-4">
+            <input type="file" class="form-control"
+                    (change)="onFileSelected($event)" formControlName="userImage">
+        </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-12">
+           <input type="submit" class="btn btn-primary" value="Save" />
+            <input type="button" class="btn btn-warning" value="Cancel" (click)="cancel()">
+      </div>
+
+    </div>
+</form>
