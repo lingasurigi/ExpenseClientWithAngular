@@ -66,6 +66,7 @@ export class ListuserComponent  {
                   else
                    this.isUserExists = false;
                 this.isGridCanShow = true;
+                
 }
   getUsers(){
     this._commonService.get('http://localhost:53818//api/user').subscribe(
