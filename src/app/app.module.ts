@@ -12,7 +12,6 @@ import { TokenInterceptor } from './common/tokeninterceptor';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular/main';
-import { ChitComponent } from './components/chit/chit.component';
 
 
 @NgModule({
@@ -21,8 +20,7 @@ import { ChitComponent } from './components/chit/chit.component';
     AdduserComponent,
     EdituserComponent,
     ListuserComponent,
-    NavbarComponent,
-    ChitComponent
+    NavbarComponent
 ],
   imports: [
     BrowserModule,
