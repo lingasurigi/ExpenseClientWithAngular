@@ -5,5 +5,6 @@ export class User {
     email: string;
     firstName: string;
     lastName: string;
-    IsActive: string;
+    isActive: string;
+    courseFile: any;
 }

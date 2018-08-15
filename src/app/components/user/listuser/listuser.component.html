@@ -1,12 +1,19 @@
 <div>
     <button (click)="deleteSelectedUsers()" [disabled]="!isUserExists">Delete Selected Rows</button>
 </div>
-<ag-grid-angular #usersGrid style="width:50%; height: 200px;" class="ag-theme-balham" *ngIf="isGridCanShow" [gridOptions]="gridOptions"
-enableColResize enableSorting enableFilter [pagination]="true" [paginationAutoPageSize]="true"
-(cellClicked)="editCell($event)"
-(gridReady)="onGridReady($event)" 
-rowSelection="multiple"
-(cellValueChanged)="onCellValueChanged($event)">
+<ag-grid-angular #usersGrid style="width:50%; height: 200px;" class="ag-theme-balham" *ngIf="isGridCanShow" 
+                    [gridOptions]="gridOptions"
+                    enableColResize 
+                    enableSorting 
+                    enableFilter 
+                    [pagination]="true" 
+                    [paginationAutoPageSize]="true"
+                    (cellClicked)="editCell($event)"
+                    (gridReady)="onGridReady($event)" 
+                    rowSelection="multiple"
+                    (cellValueChanged)="onCellValueChanged($event)"
+                    
+                    >
 </ag-grid-angular>
 
 

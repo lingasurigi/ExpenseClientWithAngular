@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '../../../common/services/httpservice/common.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-adduser',
@@ -17,12 +18,13 @@ export class AdduserComponent implements OnInit {
   submitted: boolean = false;
   _ref:any;
   selectedFile: File;
+  user: User;
 
   constructor(private _fb: FormBuilder, 
               private _avRoute: ActivatedRoute,
               private _commonService: CommonService,
               private _router: Router) { 
-    
+    this.user = new User();
     if(this._avRoute.snapshot.params["userId"]){
       debugger;
       this.userId = parseInt( this._avRoute.snapshot.params["userId"]);
@@ -40,7 +42,7 @@ export class AdduserComponent implements OnInit {
       email: ['', [Validators.required]],
       isActive: ['', [Validators.required]],
       //phone: ['', [Validators.pattern("[1-9][0-9]{9}")]],
-      userImage:['']
+      userImage: File
       
     })
   }
@@ -61,15 +63,19 @@ export class AdduserComponent implements OnInit {
   save(){
     debugger;
     if(this.userForm.valid){
-      this.userForm.value.userImage = this.selectedFile;
+      debugger;
+      this.user = this.userForm.value;
+      this.user.courseFile = this.selectedFile;
+      //this.userForm.value.userImage = this.selectedFile;
       //console.log(this.userForm.value.userImage);
       debugger;
-      let formData: FormData = new FormData();  
-      formData.append('uploadFile', this.selectedFile, this.selectedFile.name);  
+      //let formData: FormData = new FormData();  
+      //formData.append('uploadFile', this.selectedFile);  
 
-      formData.append('user',this.userForm.value);
+      //formData.append('user',this.userForm.value);
 
-      this._commonService.post('http://localhost:53818//api/user/SaveUser',JSON.stringify(formData))
+      //this._commonService.post('http://localhost:53818//api/user/SaveUser',JSON.stringify(this.userForm.value))
+      this._commonService.post('http://localhost:53818//api/user/SaveUser',JSON.stringify(this.user))
         .subscribe(custId => {
           debugger;
             //alert('Saved Successfully!')
