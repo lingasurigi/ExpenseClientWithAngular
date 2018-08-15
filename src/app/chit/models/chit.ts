@@ -1,4 +1,4 @@
-export class Chit
+export class ChitDetails
 {
     chitDetailsId: number;
     usersChitsId: number;
