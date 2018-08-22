@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '../../../common/services/httpservice/common.service';
-import { User } from '../../../models/user';
+import { user } from '../../models/user';
 
 @Component({
   selector: 'app-adduser',
@@ -18,13 +18,13 @@ export class AdduserComponent implements OnInit {
   submitted: boolean = false;
   _ref:any;
   selectedFile: File;
-  user: User;
+  user: user;
 
   constructor(private _fb: FormBuilder, 
               private _avRoute: ActivatedRoute,
               private _commonService: CommonService,
               private _router: Router) { 
-    this.user = new User();
+    this.user = new user();
     if(this._avRoute.snapshot.params["userId"]){
       debugger;
       this.userId = parseInt( this._avRoute.snapshot.params["userId"]);

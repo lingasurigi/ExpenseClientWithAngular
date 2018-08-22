@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../../common/services/httpservice/common.service';
-import { User } from '../../../models/user';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ViewChild } from '@angular/core';

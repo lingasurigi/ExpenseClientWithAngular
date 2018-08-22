@@ -1,14 +1,13 @@
 import { RouterModule,Routes } from '@angular/router';
-import { AdduserComponent } from './components/user/adduser/adduser.component';
-import { ListuserComponent } from './components/user/listuser/listuser.component';
-import { EdituserComponent } from './components/user/edituser/edituser.component';
-import { ChitComponent } from './chit/components/chit.component';
+import { ListuserComponent } from './user/components/listuser/listuser.component';
+import { AdduserComponent } from './user/components/adduser/adduser.component';
+import { ListChitDetailsComponent } from './chit/components/listchitdetails/listchitdetails.component';
 
 const appRoutes: Routes = [
   { path: 'listusers', component: ListuserComponent },
   { path: 'adduser', component: AdduserComponent },
   { path: 'users/edit/:userId', component: AdduserComponent },
-  { path: 'chits', component: ChitComponent },
+  { path: 'chitdetails', component: ListChitDetailsComponent },
   { path: '', redirectTo: '/listusers', pathMatch: 'full' }
   ];
 

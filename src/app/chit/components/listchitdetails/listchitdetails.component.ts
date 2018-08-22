@@ -8,10 +8,9 @@ import { GenderCellRenderer } from '../../../common/renderer.component';
 
 @Component({
   selector: 'app-chit',
-  templateUrl: './chit.component.html',
-  styleUrls: ['./chit.component.css']
+  templateUrl: './listchitdetails.component.html'
 })
-export class ChitComponent implements OnInit {
+export class ListChitDetailsComponent implements OnInit {
 
   private gridApi;
   private gridColumnApi;
