@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { ChitComponent } from './chit/components/chit.component';
+import { GenderCellRenderer } from './common/renderer.component';
+import { AddchitdetailsComponent } from './chit/components/addchitdetails/addchitdetails.component';
+import { ListchitdetailsComponent } from './chit/components/listchitdetails/listchitdetails.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { ChitComponent } from './chit/components/chit.component';
     EdituserComponent,
     ListuserComponent,
     NavbarComponent,
-    ChitComponent
+    ChitComponent,
+    GenderCellRenderer,
+    AddchitdetailsComponent,
+    ListchitdetailsComponent
     
     
 ],
@@ -31,7 +37,7 @@ import { ChitComponent } from './chit/components/chit.component';
     ReactiveFormsModule,
     routing,
     HttpClientModule,
-    AgGridModule.withComponents(ListuserComponent)
+    AgGridModule.withComponents([ListuserComponent,GenderCellRenderer])
   ],
   providers: [
     {

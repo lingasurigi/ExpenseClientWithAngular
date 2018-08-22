@@ -1,15 +1,19 @@
 <div>
   <button (click)="deleteSelectedChitDetails()" [disabled]="!isChitDetailsExist">Delete Selected Rows</button>
+  <button (click)="addChitDetails()">Add Chit Details</button>
 </div>
-<ag-grid-angular #chitDetailGrid style="width:50%; height: 200px;" class="ag-theme-balham" *ngIf="isGridCanShow" 
+<ag-grid-angular #chitDetailGrid style="width:100%; height: 200px;" class="ag-theme-balham" *ngIf="isGridCanShow" 
                     [gridOptions]="gridOptions"
                     enableColResize 
                     enableSorting 
                     enableFilter 
                     [pagination]="true" 
                     [paginationAutoPageSize]="true"
-                    (cellClicked)="editCell($event)"
+                    [frameworkComponents]="frameworkComponents"
                     (gridReady)="onGridReady($event)" 
                     rowSelection="multiple"
-                    (cellValueChanged)="onCellValueChanged($event)">
+                    (cellValueChanged)="onCellValueChanged($event)"
+                    
+                    >
+
 </ag-grid-angular>
