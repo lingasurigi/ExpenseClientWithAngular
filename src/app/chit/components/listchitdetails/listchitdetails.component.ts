@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from '../../common/services/httpservice/common.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { GridOptions } from 'ag-grid';
-import { GenderCellRenderer } from '../../common/renderer.component';
 import "ag-grid-enterprise";
+import { CommonService } from '../../../common/services/httpservice/common.service';
+import { GenderCellRenderer } from '../../../common/renderer.component';
 
 @Component({
   selector: 'app-chit',
