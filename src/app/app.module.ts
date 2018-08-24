@@ -15,6 +15,7 @@ import { AdduserComponent } from './user/components/adduser/adduser.component';
 import { EdituserComponent } from './user/components/edituser/edituser.component';
 import { ListuserComponent } from './user/components/listuser/listuser.component';
 import { ListChitDetailsComponent } from './chit/components/listchitdetails/listchitdetails.component';
+import { DropDownComponent } from './common/controls/customdropdown.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ListChitDetailsComponent } from './chit/components/listchitdetails/list
     NavbarComponent,
     GenderCellRenderer,
     AddchitdetailsComponent,
-    ListChitDetailsComponent
+    ListChitDetailsComponent,
+    DropDownComponent
     
     
 ],

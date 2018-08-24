@@ -17,7 +17,7 @@ import { HttpHeaders } from '@angular/common/http';
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       console.log(JSON.stringify(req));
-      const token: string =  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InZhcnNoaSIsIm5iZiI6MTUzNDkwNDg3OSwiZXhwIjoxNTM0OTkxMjc5LCJpYXQiOjE1MzQ5MDQ4Nzl9.9UJRwySC5-wv-L7HiWf_p7W-TU2kR1hs3H45KhvARGI'
+      const token: string =  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InZhcnNoaSIsIm5iZiI6MTUzNTEzMjEwMCwiZXhwIjoxNTM1MjE4NTAwLCJpYXQiOjE1MzUxMzIxMDB9.Yv47uwQs1WZGmlgEjBheKOzhztIoAQe-SQ6574y5kns'
       
 
       if (token) {
