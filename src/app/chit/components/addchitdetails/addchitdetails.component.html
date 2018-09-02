@@ -1,13 +1,13 @@
 <h3>{{title}} User</h3>
 <hr>
 <div>{{errorMessage}}</div>
-<form [formGroup]="userForm" (ngSubmit)="save()" novalidate>
+<form [formGroup]="chitDetailsForm" (ngSubmit)="save()" novalidate>
     <div class="form-group row">
         <label for="" class="col-md-12">User Name</label>
         <div class="col-md-4">
-          <my-dropdown></my-dropdown>
-            <input type="dropdown"  class="form-control"
-                   formControlName="userName">
+          <my-dropdown [inputData]="userNames"></my-dropdown>
+            <!-- <input type="dropdown"  class="form-control"
+                   formControlName="userName"> -->
         </div>
     </div>
     <div class="form-group row">

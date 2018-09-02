@@ -1,38 +1,35 @@
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
 
 @Component({
     selector: 'my-dropdown',
     template: `
     <select (change)="onSelect($event.target.value)">
-      <option *ngFor="let product of products" [value]="product.id">{{product.name}}</option>
+      <option *ngFor="let item of inputData" [value]="item.value">{{item.text}}</option>
     </select>
-    <div>selection={{selectedProduct.name}}</div>
+    <div>selection={{selectedItem.text}}</div>
     `
     //directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 
 export class DropDownComponent { 
-    
-    public selectedProduct:any;
+    @Input() inputData:any;
+    public selectedItem:any;
     public products: any;
     constructor(){
          
     }
-    onInit(){
-        this.products = [
-            { "id": 1, "name": "Table" },
-            { "id": 2, "name": "Chair" },
-            { "id": 3, "name": "Light" }
-          ];
-      
-          this.selectedProduct = this.products[0];
+    ngOnInit(){
+        // this.products = inputData
+      debugger;
+           this.selectedItem = this.inputData[0];
     }
-    onSelect(productId) { 
-        this.selectedProduct = null;
-        for (var i = 0; i < this.products.length; i++)
+    onSelect(itemId) { 
+        this.selectedItem = null;
+        for (var i = 0; i < this.inputData.length; i++)
         {
-          if (this.products[i].id == productId) {
-            this.selectedProduct = this.products[i];
+          if (this.inputData[i].value == itemId) {
+            this.selectedItem = this.inputData[i];
           }
         }
     }
