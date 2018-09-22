@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { CommonService } from '../../../common/services/httpservice/common.service';
 
 @Component({
   selector: 'app-addchitdetails',
@@ -11,9 +12,11 @@ import { Validators } from '@angular/forms';
 export class AddChitDetailsComponent implements OnInit {
 
   chitDetailsForm: FormGroup;
-  userNames:any;
-
-  constructor(private _fb: FormBuilder, ) { 
+  users: any;
+  usersDropDown = [];
+  errorMessage: any;
+  isDataExistForDD: boolean = false;
+  constructor(private _fb: FormBuilder, private _commonService: CommonService) {
 
     this.chitDetailsForm = this._fb.group({
       chitName: [''],
@@ -31,18 +34,36 @@ export class AddChitDetailsComponent implements OnInit {
       receip: [''],
       //phone: ['', [Validators.pattern("[1-9][0-9]{9}")]],
       userImage: File
-      
+
     })
 
   }
 
-  
-  ngOnInit() {
-    this.userNames =  [
-      { "value": 1, "text": "Table" },
-      { "value": 2, "text": "Chair" },
-      { "value": 3, "text": "Light" }
-    ];
-  }
 
+  ngOnInit() {
+    this._commonService.get('http://localhost:53818//api/user').subscribe(
+      async data => {
+        this.users = await data;
+        this.UsersDropDownBinding();
+      },
+      error => {
+        debugger;
+        this.errorMessage = error
+      }
+    )
+    // this.userNames =  [
+    //   { "value": 1, "text": "Table" },
+    //   { "value": 2, "text": "Chair" },
+    //   { "value": 3, "text": "Light" }
+    // ];
+
+  }
+  public UsersDropDownBinding() {
+    if (this.users != null) {
+      for (var i = 0; i < this.users.length; i++) {
+        this.usersDropDown.push({ "value": this.users[i].userId, "text": this.users[i].userName });
+      }
+      this.isDataExistForDD = true;
+    }
+  }
 }

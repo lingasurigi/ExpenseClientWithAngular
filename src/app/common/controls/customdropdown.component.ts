@@ -7,7 +7,6 @@ import { Input } from '@angular/core';
     <select (change)="onSelect($event.target.value)">
       <option *ngFor="let item of inputData" [value]="item.value">{{item.text}}</option>
     </select>
-    <div>selection={{selectedItem.text}}</div>
     `
     //directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
 })

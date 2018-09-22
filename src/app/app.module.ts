@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -12,8 +11,6 @@ import { AgGridModule } from 'ag-grid-angular/main';
 import { GenderCellRenderer } from './common/renderer.component';
 import { UserModule } from './user/module/user.module.module';
 import { ChitDetailsModule } from './chitdetails/module/chitdetails.module';
-
-
 
 @NgModule({
   declarations: [
