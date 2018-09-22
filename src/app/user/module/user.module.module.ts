@@ -7,16 +7,16 @@ import { ListuserComponent } from '../components/listuser/listuser.component';
 import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
+  declarations: [
+    AdduserComponent,
+    EdituserComponent,
+    ListuserComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([ListuserComponent])
-  ],
-  declarations: [
-    AdduserComponent,
-    EdituserComponent,
-    ListuserComponent,
   ]
 })
 export class UserModule { }

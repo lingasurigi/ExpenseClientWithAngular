@@ -11,7 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { GenderCellRenderer } from './common/renderer.component';
 import { UserModule } from './user/module/user.module.module';
-import { ChitdetailsModule } from './chit/module/chitdetails.module';
+import { ChitDetailsModule } from './chitdetails/module/chitdetails.module';
+
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { ChitdetailsModule } from './chit/module/chitdetails.module';
     routing,
     HttpClientModule,
     UserModule,
-    ChitdetailsModule,
+    ChitDetailsModule,
     AgGridModule.withComponents([GenderCellRenderer])
   ],
   providers: [

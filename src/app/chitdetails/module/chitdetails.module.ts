@@ -19,4 +19,4 @@ import { DropDownComponent } from '../../common/controls/customdropdown.componen
     AgGridModule.withComponents([ListChitDetailsComponent])
   ]
 })
-export class ChitdetailsModule { }
+export class ChitDetailsModule { }

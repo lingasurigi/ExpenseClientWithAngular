@@ -1,8 +1,8 @@
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ListuserComponent } from './user/components/listuser/listuser.component';
 import { AdduserComponent } from './user/components/adduser/adduser.component';
-import { ListChitDetailsComponent } from './chit/components/listchitdetails/listchitdetails.component';
-import { AddChitDetailsComponent } from './chit/components/addchitdetails/addchitdetails.component';
+import { AddChitDetailsComponent } from './chitdetails/components/addchitdetails/addchitdetails.component';
+import { ListChitDetailsComponent } from './chitdetails/components/listchitdetails/listchitdetails.component';
 
 const appRoutes: Routes = [
   { path: 'adduser', component: AdduserComponent },
@@ -11,6 +11,6 @@ const appRoutes: Routes = [
   { path: 'addchitdetails', component: AddChitDetailsComponent },
   { path: 'listchitdetails', component: ListChitDetailsComponent },
   { path: '', redirectTo: '/listusers', pathMatch: 'full' }
-  ];
+];
 
 export const routing = RouterModule.forRoot(appRoutes)
