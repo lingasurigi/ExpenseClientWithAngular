@@ -10,35 +10,25 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { GenderCellRenderer } from './common/renderer.component';
-import { AddchitdetailsComponent } from './chit/components/addchitdetails/addchitdetails.component';
-import { AdduserComponent } from './user/components/adduser/adduser.component';
-import { EdituserComponent } from './user/components/edituser/edituser.component';
-import { ListuserComponent } from './user/components/listuser/listuser.component';
-import { ListChitDetailsComponent } from './chit/components/listchitdetails/listchitdetails.component';
-import { DropDownComponent } from './common/controls/customdropdown.component';
+import { UserModule } from './user/module/user.module.module';
+import { ChitdetailsModule } from './chit/module/chitdetails.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdduserComponent,
-    EdituserComponent,
-    ListuserComponent,
     NavbarComponent,
-    GenderCellRenderer,
-    AddchitdetailsComponent,
-    ListChitDetailsComponent,
-    DropDownComponent
-    
-    
-],
+    GenderCellRenderer
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     routing,
     HttpClientModule,
-    AgGridModule.withComponents([ListuserComponent,GenderCellRenderer])
+    UserModule,
+    ChitdetailsModule,
+    AgGridModule.withComponents([GenderCellRenderer])
   ],
   providers: [
     {

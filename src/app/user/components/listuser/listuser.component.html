@@ -11,6 +11,7 @@
                     (cellClicked)="editCell($event)"
                     (gridReady)="onGridReady($event)" 
                     rowSelection="multiple"
+                    [suppressColumnVirtualisation]="true"
                     (cellValueChanged)="onCellValueChanged($event)">
 </ag-grid-angular>
 

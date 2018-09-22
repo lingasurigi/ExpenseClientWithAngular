@@ -8,7 +8,7 @@ import { Validators } from '@angular/forms';
   templateUrl: './addchitdetails.component.html',
   styleUrls: ['./addchitdetails.component.css']
 })
-export class AddchitdetailsComponent implements OnInit {
+export class AddChitDetailsComponent implements OnInit {
 
   chitDetailsForm: FormGroup;
   userNames:any;

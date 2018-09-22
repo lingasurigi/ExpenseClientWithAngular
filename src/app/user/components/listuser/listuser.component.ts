@@ -21,10 +21,12 @@ export class ListuserComponent  {
   isGridCanShow : boolean = false;
   isUserExists : boolean = true;
   private api : GridApi
+  public rejectId : number = 0;
 
   constructor( private _commonService : CommonService,
                private _router: Router,
                private _activatedRoute: ActivatedRoute) {
+                this.rejectId = 0;
                 this.getUsers();
                 
 }
@@ -57,6 +59,27 @@ export class ListuserComponent  {
                     headerName: "Email",
                     field: "email",
                     width: 100
+                  },
+                  {
+                    headerName: "Email",
+                    field: "email",
+                    width: 100
+                  },
+                  {
+                    headerName: "Email",
+                    field: "email",
+                    width: 100
+                  },
+                  {
+                    headerName: "Email",
+                    field: "email",
+                    width: 100
+                  },
+                  {
+                    headerName: "Email",
+                    field: "email",
+                    width: 100,
+                    editable: true
                   }
                 ];
                 this.gridOptions.rowData =  this.users ;
@@ -65,6 +88,34 @@ export class ListuserComponent  {
                   else
                    this.isUserExists = false;
                 this.isGridCanShow = true;
+
+                this.gridOptions.columnDefs.push({
+                  headerName:"Approve",
+                  field: "approve",
+                  //suppressCellFlash : true,
+                  cellRenderer: this.radioCellRenderer,
+                  //suppressColumnVirtualisation : true,
+                //   cellRenderer : params =>{ 
+                //         return '<input type="radio" />'
+                //  }
+
+                  
+
+                });
+
+                this.gridOptions.columnDefs.push({
+                  headerName:"Reject",
+                  field: "reject",
+                  //suppressCellFlash : true,
+                  cellRenderer: this.radioCellRenderer,
+                  //suppressColumnVirtualisation : true,
+                //   cellRenderer : params =>{ 
+                //         return '<input type="radio" />'
+                //  }
+
+                  
+
+                });
                 
 }
   getUsers(){
@@ -128,4 +179,23 @@ export class ListuserComponent  {
     console.log(cellval);
     console.log(cellval);
   }
+
+  public radioCellRenderer(param: any) {
+    debugger;
+    let eCell = document.createElement("input");
+    eCell.type = "radio";
+    if(param.column.colId == 'approve'){
+      eCell.name = "approve_1";
+    }   
+    // else{
+    //   var j = Number(this.rejectId);
+    //   eCell.name = "reject_" + ++j;
+    // } 
+    //eCell.value = param.node.data.radio;
+
+    eCell.addEventListener("change", function (ev) {
+        debugger;
+    });
+    return eCell;
+}
 }
