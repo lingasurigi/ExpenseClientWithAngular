@@ -5,7 +5,7 @@
     <div class="form-group row">
         <label for="" class="col-md-12">User Name</label>
         <div class="col-md-4">
-          <my-dropdown *ngIf="isDataExistForDD" [inputData]="usersDropDown"></my-dropdown>
+          <custom-dropdown *ngIf="isDataExistForUserDD" [inputData]="usersDropDown"></custom-dropdown>
             <!-- <input type="dropdown"  class="form-control"
                    formControlName="userName"> -->
         </div>
@@ -13,20 +13,19 @@
     <div class="form-group row">
       <label for="" class="col-md-12">Chit Name</label>
       <div class="col-md-4">
-          <input type="text"  class="form-control"
-                 formControlName="chitName">
+        <custom-dropdown *ngIf="isDataExistForChitsDD" [inputData]="chitsDropDown"></custom-dropdown>
       </div>
   </div>
   <div class="form-group row">
     <label for="" class="col-md-12">Agent Name</label>
     <div class="col-md-4">
-        <my-dropdown *ngIf="isDataExistForDD" [inputData]="usersDropDown"></my-dropdown>
+        <custom-dropdown *ngIf="isDataExistForUserDD" [inputData]="usersDropDown"></custom-dropdown>
     </div>
 </div>
     <div class="form-group row">
         <label for="" class="col-md-12">Message Date</label>
         <div class="col-md-4">
-            <input type="text"  class="form-control"
+            <input type="date"  class="form-control"
                    formControlName="messageDate">
         </div>
     </div>

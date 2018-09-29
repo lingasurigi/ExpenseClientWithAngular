@@ -13,9 +13,12 @@ export class AddChitDetailsComponent implements OnInit {
 
   chitDetailsForm: FormGroup;
   users: any;
+  chits: any;
   usersDropDown = [];
+  chitsDropDown = [];
   errorMessage: any;
-  isDataExistForDD: boolean = false;
+  isDataExistForUserDD: boolean = false;
+  isDataExistForChitsDD: boolean = false;
   constructor(private _fb: FormBuilder, private _commonService: CommonService) {
 
     this.chitDetailsForm = this._fb.group({
@@ -42,9 +45,20 @@ export class AddChitDetailsComponent implements OnInit {
 
   ngOnInit() {
     this._commonService.get('http://localhost:53818//api/user').subscribe(
-      async data => {
-        this.users = await data;
+      async res => {
+        this.users = await res;
         this.UsersDropDownBinding();
+      },
+      error => {
+        debugger;
+        this.errorMessage = error
+      }
+    )
+
+    this._commonService.get('http://localhost:53818//api/chits').subscribe(
+      async res => {
+        this.chits = await res;
+        this.ChitsDropDownBinding();
       },
       error => {
         debugger;
@@ -63,7 +77,16 @@ export class AddChitDetailsComponent implements OnInit {
       for (var i = 0; i < this.users.length; i++) {
         this.usersDropDown.push({ "value": this.users[i].userId, "text": this.users[i].userName });
       }
-      this.isDataExistForDD = true;
+      this.isDataExistForUserDD = true;
+    }
+  }
+
+  public ChitsDropDownBinding() {
+    if (this.chits != null) {
+      for (var i = 0; i < this.chits.length; i++) {
+        this.chitsDropDown.push({ "value": this.chits[i].chitId, "text": this.chits[i].chitName });
+      }
+      this.isDataExistForChitsDD = true;
     }
   }
 }
