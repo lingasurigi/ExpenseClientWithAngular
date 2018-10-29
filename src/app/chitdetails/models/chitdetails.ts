@@ -1,17 +1,21 @@
 export class ChitDetails
 {
-    chitDetailsId: number;
-    usersChitsId: number;
+    ChitDetailsId: number;
+    UsersChitsId: number;
     userName: string;
-    messageDate: Date;
-    paidDate: Date;
-    pendingAmount: number;
-    extraAmount: number;
-    dividend: number;
-    otherNumbers: string;
-    receiptNumber: string;
-    checkNumber: string
-    comments: string;
-    statusId: number;
+    MessageDate: Date;
+    PaidDate: Date;
+    ExtraAmount: number;
+    Dividend: number;
+    OtherNumbers: string;
+    ReceiptNumber: string;
+    CheckNumber: string
+    Comments: string;
+    StatusId: number;
+    AgentId: number;
+    CustomerId: number;
+    ChitId: number;
+    ActualAmount: number;
+    PaidAmount: number;
     status: string;
 }

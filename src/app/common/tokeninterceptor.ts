@@ -13,11 +13,9 @@ import { HttpHeaders } from '@angular/common/http';
   @Injectable()
   export class TokenInterceptor implements HttpInterceptor {
     
-
-
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       console.log(JSON.stringify(req));
-      const token: string =  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InZhcnNoaSIsIm5iZiI6MTUzODIxNDE0OCwiZXhwIjoxNTM4MzAwNTQ4LCJpYXQiOjE1MzgyMTQxNDh9.ndmoO-l2AgC_wt5fT2_ekxh552aTzCwiGgiuwZ0Xr58'
+      const token: string =  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InZhcnNoaSIsIm5iZiI6MTU0MDcyMDk3OSwiZXhwIjoxNTQwODA3Mzc4LCJpYXQiOjE1NDA3MjA5Nzl9.svXO_P3FaJoktOg7YSqI26vwicnmkpJpTikdnzjPglU'
       
 
       if (token) {

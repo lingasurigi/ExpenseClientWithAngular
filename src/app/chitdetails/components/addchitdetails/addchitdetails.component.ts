@@ -3,6 +3,8 @@ import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { CommonService } from '../../../common/services/httpservice/common.service';
+import { ChitDetails } from '../../models/chitdetails';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addchitdetails',
@@ -19,11 +21,18 @@ export class AddChitDetailsComponent implements OnInit {
   errorMessage: any;
   isDataExistForUserDD: boolean = false;
   isDataExistForChitsDD: boolean = false;
-  constructor(private _fb: FormBuilder, private _commonService: CommonService) {
+  chitDetail: ChitDetails;
+  submitted: boolean = false;
+  userId: string = "userId";
+  chitId: string = "chitId";
+  agentId: string = "agentId";
+  constructor(private _fb: FormBuilder, private _commonService: CommonService,private _router: Router) {
 
     this.chitDetailsForm = this._fb.group({
-      chitName: [''],
-      agentName: [''],
+      //chitName: [''],
+      customerId:[''],
+      chitId: [''],
+      agentId: [''],
       messageDate: [''],
       paidDate: [''],
       extraAmount: [''],
@@ -89,4 +98,35 @@ export class AddChitDetailsComponent implements OnInit {
       this.isDataExistForChitsDD = true;
     }
   }
+
+  save(){
+    debugger;
+    if(this.chitDetailsForm.valid){
+      debugger;
+      this.chitDetail = this.chitDetailsForm.value;
+      //this.chitDetail.courseFile = this.selectedFile;
+      //this.userForm.value.userImage = this.selectedFile;
+      //console.log(this.userForm.value.userImage);
+      debugger;
+      //let formData: FormData = new FormData();  
+      //formData.append('uploadFile', this.selectedFile);  
+
+      //formData.append('user',this.userForm.value);
+
+      //this._commonService.post('http://localhost:53818//api/user/SaveUser',JSON.stringify(this.userForm.value))
+      this._commonService.post('http://localhost:53818//api/chits/SaveChitDetails',JSON.stringify(this.chitDetail))
+        .subscribe(custId => {
+          debugger;
+            //alert('Saved Successfully!')
+            //this._router.navigate(['customers', {id: custId}]);
+            this._router.navigateByUrl('listchitdetails');
+         }, error => this.errorMessage = error )
+    }
+    else{
+      this.submitted = false;
+      event.preventDefault()
+    }
+
+    
+}
 }

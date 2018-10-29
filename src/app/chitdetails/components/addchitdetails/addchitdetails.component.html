@@ -5,98 +5,97 @@
     <div class="form-group row">
         <label for="" class="col-md-12">User Name</label>
         <div class="col-md-4">
-          <custom-dropdown *ngIf="isDataExistForUserDD" [inputData]="usersDropDown"></custom-dropdown>
+            <!-- <custom-dropdown *ngIf="isDataExistForUserDD" [inputData]="usersDropDown" [group]="chitDetailsForm" [controlId]="userId"></custom-dropdown> -->
             <!-- <input type="dropdown"  class="form-control"
                    formControlName="userName"> -->
+            <select (change)="onSelect($event.target.value)" class="form-control" formControlName="userId">
+                <option *ngFor="let item of usersDropDown" [value]="item.value">{{item.text}}</option>
+            </select>
         </div>
     </div>
     <div class="form-group row">
-      <label for="" class="col-md-12">Chit Name</label>
-      <div class="col-md-4">
-        <custom-dropdown *ngIf="isDataExistForChitsDD" [inputData]="chitsDropDown"></custom-dropdown>
-      </div>
-  </div>
-  <div class="form-group row">
-    <label for="" class="col-md-12">Agent Name</label>
-    <div class="col-md-4">
-        <custom-dropdown *ngIf="isDataExistForUserDD" [inputData]="usersDropDown"></custom-dropdown>
+        <label for="" class="col-md-12">Chit Name</label>
+        <div class="col-md-4">
+            <!-- <custom-dropdown *ngIf="isDataExistForChitsDD" [inputData]="chitsDropDown" [group]="chitDetailsForm" [controlId]="chitId"></custom-dropdown> -->
+            <select (change)="onSelect($event.target.value)" class="form-control" formControlName="chitId">
+                <option *ngFor="let item of chitsDropDown" [value]="item.value">{{item.text}}</option>
+            </select>
+        </div>
     </div>
-</div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Agent Name</label>
+        <div class="col-md-4">
+            <!-- <custom-dropdown *ngIf="isDataExistForUserDD" [inputData]="usersDropDown" [group]="chitDetailsForm" [controlId]="agentId"></custom-dropdown> -->
+            <select (change)="onSelect($event.target.value)" class="form-control" formControlName="agentId">
+                <option *ngFor="let item of usersDropDown" [value]="item.value">{{item.text}}</option>
+            </select>
+        </div>
+    </div>
     <div class="form-group row">
         <label for="" class="col-md-12">Message Date</label>
         <div class="col-md-4">
-            <input type="date"  class="form-control"
-                   formControlName="messageDate">
+            <input type="date" class="form-control" formControlName="messageDate">
         </div>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-12">Paid Date</label>
         <div class="col-md-4">
-            <input type="text"  class="form-control"
-                   formControlName="paidDate">
+            <input type="date" class="form-control" formControlName="paidDate">
         </div>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-12">Extra Amount</label>
         <div class="col-md-4">
-            <input type="text" class="form-control"
-                    formControlName="extraAmount" >
+            <input type="text" class="form-control" formControlName="extraAmount">
         </div>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-12">Dividend</label>
         <div class="col-md-4">
-            <input type="text" class="form-control"
-                    formControlName="dividend" >
+            <input type="text" class="form-control" formControlName="dividend">
         </div>
     </div>
     <div class="form-group row">
         <label for="" class="col-md-12">Other Numbers</label>
         <div class="col-md-4">
-            <input type="text" class="form-control"
-                    formControlName="otherNumbers" >
+            <input type="text" class="form-control" formControlName="otherNumbers">
         </div>
     </div>
     <div class="form-group row">
-      <label for="" class="col-md-12">Receipt Number</label>
-      <div class="col-md-4">
-          <input type="text" class="form-control"
-                  formControlName="receiptNumber" >
-      </div>
-  </div>
-  <div class="form-group row">
-    <label for="" class="col-md-12">Please upload supported document</label>
-    <div class="col-md-4">
-        <input type="file" class="form-control"
-                (change)="onFileSelected($event)" formControlName="receip">
+        <label for="" class="col-md-12">Receipt Number</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="receiptNumber">
+        </div>
     </div>
-</div>
-  <div class="form-group row">
-    <label for="" class="col-md-12">Check Number</label>
-    <div class="col-md-4">
-        <input type="text" class="form-control"
-                formControlName="checkNumber" >
-    </div>
-</div>
-<div class="form-group row">
-  <label for="" class="col-md-12">Comments</label>
-  <div class="col-md-4">
-      <input type="text" class="form-control"
-              formControlName="comments" >
-  </div>
-</div>
-<div class="form-group row">
-  <label for="" class="col-md-12">Status</label>
-  <div class="col-md-4">
-      <input type="text" class="form-control"
-              formControlName="status" >
-  </div>
-</div>
     <div class="form-group row">
-      <div class="col-md-12">
-           <input type="submit" class="btn btn-primary" value="Save" />
+        <label for="" class="col-md-12">Please upload supported document</label>
+        <div class="col-md-4">
+            <input type="file" class="form-control" (change)="onFileSelected($event)" formControlName="receip">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Check Number</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="checkNumber">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Comments</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="comments">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Status</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="status">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-primary" value="Save" />
             <input type="button" class="btn btn-warning" value="Cancel" (click)="cancel()">
-      </div>
+        </div>
 
     </div>
 </form>
