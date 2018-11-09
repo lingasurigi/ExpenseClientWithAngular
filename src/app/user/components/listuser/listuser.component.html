@@ -1,7 +1,7 @@
 <div>
     <button (click)="deleteSelectedUsers()" [disabled]="!isUserExists">Delete Selected Rows</button>
 </div>
-<ag-grid-angular #usersGrid style="width:50%; height: 200px;" class="ag-theme-balham" *ngIf="isGridCanShow" 
+<ag-grid-angular #usersGrid style="width:100%; height: 200px;" class="ag-theme-balham" *ngIf="isGridCanShow" 
                     [gridOptions]="gridOptions"
                     enableColResize 
                     enableSorting 

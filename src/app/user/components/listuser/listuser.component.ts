@@ -49,37 +49,17 @@ export class ListuserComponent  {
                     field: "userName",
                     width: 100,
                     editable: true
-                  },
-                  {
-                    headerName: "Password",
-                    field: "password",
-                    width: 100
-                  },
-                  {
-                    headerName: "Email",
-                    field: "email",
-                    width: 100
-                  },
+                  }
+                  ,
+                  // {
+                  //   headerName: "Password",
+                  //   field: "password",
+                  //   width: 100
+                  // },
                   {
                     headerName: "Email",
                     field: "email",
                     width: 100
-                  },
-                  {
-                    headerName: "Email",
-                    field: "email",
-                    width: 100
-                  },
-                  {
-                    headerName: "Email",
-                    field: "email",
-                    width: 100
-                  },
-                  {
-                    headerName: "Email",
-                    field: "email",
-                    width: 100,
-                    editable: true
                   }
                 ];
                 this.gridOptions.rowData =  this.users ;

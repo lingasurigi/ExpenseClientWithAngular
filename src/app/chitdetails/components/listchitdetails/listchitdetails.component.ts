@@ -64,14 +64,8 @@ export class ListChitDetailsComponent implements OnInit {
       },
       {
         headerName: "Chit Name",
-        field: "chitNames",
-        width: 100,
-        cellRenderer: "genderCellRenderer",
-        cellEditor: "agRichSelectCellEditor",
-        cellEditorParams: {
-            values: ["Male", "Female"],
-            cellRenderer: "genderCellRenderer",
-        }
+        field: "chitName",
+        width: 100
       },
       {
         headerName: "Agent Name",
