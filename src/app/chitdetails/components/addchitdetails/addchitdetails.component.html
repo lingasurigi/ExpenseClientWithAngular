@@ -8,7 +8,16 @@
             <!-- <custom-dropdown *ngIf="isDataExistForUserDD" [inputData]="usersDropDown" [group]="chitDetailsForm" [controlId]="userId"></custom-dropdown> -->
             <!-- <input type="dropdown"  class="form-control"
                    formControlName="userName"> -->
-            <select (change)="onSelect($event.target.value)" class="form-control" formControlName="userId">
+            <select class="form-control" formControlName="userId">
+                <option *ngFor="let item of usersDropDown" [value]="item.value">{{item.text}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-md-12">Agent Name</label>
+        <div class="col-md-4">
+            <!-- <custom-dropdown *ngIf="isDataExistForUserDD" [inputData]="usersDropDown" [group]="chitDetailsForm" [controlId]="agentId"></custom-dropdown> -->
+            <select (change)="onSelectAgent($event.target.value)" class="form-control" formControlName="agentId">
                 <option *ngFor="let item of usersDropDown" [value]="item.value">{{item.text}}</option>
             </select>
         </div>
@@ -17,17 +26,8 @@
         <label for="" class="col-md-12">Chit Name</label>
         <div class="col-md-4">
             <!-- <custom-dropdown *ngIf="isDataExistForChitsDD" [inputData]="chitsDropDown" [group]="chitDetailsForm" [controlId]="chitId"></custom-dropdown> -->
-            <select (change)="onSelect($event.target.value)" class="form-control" formControlName="chitId">
+            <select class="form-control" formControlName="chitId">
                 <option *ngFor="let item of chitsDropDown" [value]="item.value">{{item.text}}</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="" class="col-md-12">Agent Name</label>
-        <div class="col-md-4">
-            <!-- <custom-dropdown *ngIf="isDataExistForUserDD" [inputData]="usersDropDown" [group]="chitDetailsForm" [controlId]="agentId"></custom-dropdown> -->
-            <select (change)="onSelect($event.target.value)" class="form-control" formControlName="agentId">
-                <option *ngFor="let item of usersDropDown" [value]="item.value">{{item.text}}</option>
             </select>
         </div>
     </div>

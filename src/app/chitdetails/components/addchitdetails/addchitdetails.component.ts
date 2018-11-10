@@ -64,7 +64,16 @@ export class AddChitDetailsComponent implements OnInit {
       }
     )
 
-    this._commonService.get('http://localhost:53818//api/chits').subscribe(
+    
+    // this.userNames =  [
+    //   { "value": 1, "text": "Table" },
+    //   { "value": 2, "text": "Chair" },
+    //   { "value": 3, "text": "Light" }
+    // ];
+
+  }
+  onSelectAgent(agentId){
+    this._commonService.get('http://localhost:53818//api/master?agentId=' + agentId).subscribe(
       async res => {
         this.chits = await res;
         this.ChitsDropDownBinding();
@@ -74,12 +83,6 @@ export class AddChitDetailsComponent implements OnInit {
         this.errorMessage = error
       }
     )
-    // this.userNames =  [
-    //   { "value": 1, "text": "Table" },
-    //   { "value": 2, "text": "Chair" },
-    //   { "value": 3, "text": "Light" }
-    // ];
-
   }
   public UsersDropDownBinding() {
     if (this.users != null) {
@@ -93,7 +96,7 @@ export class AddChitDetailsComponent implements OnInit {
   public ChitsDropDownBinding() {
     if (this.chits != null) {
       for (var i = 0; i < this.chits.length; i++) {
-        this.chitsDropDown.push({ "value": this.chits[i].chitId, "text": this.chits[i].chitName });
+        this.chitsDropDown.push({ "value": this.chits[i].agentChitInfoId, "text": this.chits[i].agentChitInfo });
       }
       this.isDataExistForChitsDD = true;
     }
