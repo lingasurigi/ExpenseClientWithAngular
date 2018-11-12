@@ -73,10 +73,9 @@ export class ListChitDetailsComponent implements OnInit {
         width: 100
       },
       {
-        headerName: "Actual Amount",
-        field: "actualAmount",
-        width: 100,
-        editable: true
+        headerName: "Month/Year To Pay",
+        field: "monthYear",
+        width: 100
       },
       {
         headerName: "Message Date",
@@ -87,6 +86,12 @@ export class ListChitDetailsComponent implements OnInit {
         headerName: "Paid Date",
         field: "paidDate",
         width: 100
+      },
+      {
+        headerName: "Actual Amount",
+        field: "actualAmount",
+        width: 100,
+        editable: true
       },
       {
         headerName: "Paid Amount",
